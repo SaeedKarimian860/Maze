@@ -1,10 +1,4 @@
-const { 
-  Engine, 
-  Render, 
-  Runner, 
-  World, 
-  Bodies, 
-} = Matter;
+const { Engine, Render, Runner, World, Bodies } = Matter;
 
 const width = 600;
 const height = 600;
@@ -17,12 +11,11 @@ const render = Render.create({
   options: {
     wireframes: true,
     width,
-    height
+    height,
   },
 });
 Render.run(render);
 Runner.run(Runner.create(), engine);
-
 
 // Walls
 const walls = [
@@ -32,5 +25,3 @@ const walls = [
   Bodies.rectangle(width, height / 2, 40, height, { isStatic: true }),
 ];
 World.add(world, walls);
-
-
