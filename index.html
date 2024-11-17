@@ -26,11 +26,24 @@
         height: 100vh;
         width: 100vw;
       }
+
+      .reset-button {
+      position: absolute;
+      margin-top: 30vh;
+      width: 160px;
+      height: 50px;
+      border-radius: 5px;
+      font-size: 30px;
+      text-align: center;
+      }
+
     </style>
   </head>
   <body>
     <div class="winner hidden">
       <h1>You Win!</h1>
+      <br />
+      <button class="reset-button hidden">Restart?</button>
     </div>
     <script src="index.js"></script>
   </body>
