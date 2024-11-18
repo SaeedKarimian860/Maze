@@ -1,7 +1,7 @@
 const { Engine, Render, Runner, World, Bodies, Body, Events } = Matter;
 
-const cellsHorizontal = 10;
-const cellsVertical = 10;
+const cellsHorizontal = 15;
+const cellsVertical = 15;
 const width = window.innerWidth;
 const height = window.innerHeight;
 
@@ -9,7 +9,6 @@ const unitLengthX = width / cellsHorizontal;
 const unitLengthY = height / cellsVertical;
 
 const reset = document.querySelector(".reset-button");
-
 
 const game = () => {
   const engine = Engine.create();
@@ -34,19 +33,19 @@ const game = () => {
     Bodies.rectangle(0, height / 2, 2, height, { isStatic: true }),
     Bodies.rectangle(width, height / 2, 2, height, { isStatic: true }),
   ];
-  
+
   World.add(world, walls);
 
   // Maze Generation
 
   const shuffle = (arr) => {
     let counter = arr.length;
-  
+
     while (counter > 0) {
       const index = Math.floor(Math.random() * counter);
-  
+
       counter--;
-  
+
       const temp = arr[counter];
       arr[counter] = arr[index];
       arr[index] = temp;
@@ -240,9 +239,6 @@ const game = () => {
           Engine.clear(engine);
           Render.stop(render);
           render.canvas.remove();
-          render.canvas = null;
-          render.context = null;
-          render.textures = {};
           document.querySelector(".winner").classList.add("hidden");
           game();
         });
